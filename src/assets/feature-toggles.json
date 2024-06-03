@@ -1,0 +1,6 @@
+{
+    "login": true,
+    "add_user": true,
+    "featureA": true,
+    "featureB": false
+}

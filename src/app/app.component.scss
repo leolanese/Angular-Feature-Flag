@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .feature-block {
+    flex: 1 1 45%;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-block.hidden {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .feature-block {
+      flex: 1 1 100%;
+    }
+  }
+  
