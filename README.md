@@ -1,9 +1,8 @@
 # Angular Feature Flags
 
+## APP_INITIALIZER Token
 
-## APP_INITIALIZER way
-
-The APP_INITIALIZER token in Angular is a dependency injection token that allows you to load and initialize configuration information before the application starts. This ensures that necessary configuration data is available throughout the application as soon as it begins execution.
+The `APP_INITIALIZER` token in Angular is a `dependency injection token` that allows you to load and initialize configuration information before the application starts. This ensures that necessary configuration data is available throughout the application as soon as it begins execution.
 
 ## Using APP_INITIALIZER for Feature Toggles
 
