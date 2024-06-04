@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FeatureToggleService {
-  private featureToggles: any = {};
+  private featureToggles: { [key: string]: boolean } = {};
   http = inject(HttpClient);
 
   constructor() {}

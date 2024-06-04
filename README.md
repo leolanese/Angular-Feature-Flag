@@ -1,8 +1,13 @@
-# Angular Feature Flags
+# Angular Feature Flags 🚩
 
-## Demo
+## Demo App
 
 ![alt text](./src/assets/image.png)
+
+## Unit-test App
+
+![alt text](./src/assets/unit-tests.png)
+
 
 ## APP_INITIALIZER Token
 
@@ -12,7 +17,7 @@ The `APP_INITIALIZER` token in Angular is a `dependency injection token` that al
 
 Implementing feature toggles in an Angular application using APP_INITIALIZER is a powerful technique. Feature toggles enable you to conditionally activate or deactivate specific features in your application based on configuration settings. This approach can be particularly useful for deploying features incrementally, performing A/B testing, or managing experimental features without the need to redeploy the entire application.
 
-## Here's a detailed explanation and example of how to use APP_INITIALIZER to implement feature toggles in an Angular application:
+## APP_INITIALIZER implementation ste--by-step in Angular application
 
 ```js
 Steps to Implement Feature Toggles with APP_INITIALIZER
@@ -25,9 +30,10 @@ Use APP_INITIALIZER to ensure that the configuration service loads the feature t
 Use Feature Toggles in Components:
 
 Inject the configuration service into your components and use the feature toggles to conditionally display or hide features.
-```
 
-> We can efficiently manage feature toggles in your Angular application, ensuring that features are enabled or disabled based on configuration settings loaded during the app initialization phase.
+
+Now, we can efficiently manage feature toggles in your Angular application, ensuring that features are enabled or disabled based on configuration settings loaded during the app initialization phase.
+```
 
 ---
 
