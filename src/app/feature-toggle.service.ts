@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+interface FeatureToggle {
+  name: string, 
+  login: boolean,
+  add_user: boolean,
+  featureA: boolean,
+  featureB: boolean
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +20,21 @@ export class FeatureToggleService {
 
   constructor() {}
 
-  loadFeatureToggles(): Observable<any> {
+  loadFeatureToggles(): Observable<FeatureToggle[]> {
     return this.http.get('/assets/feature-toggles.json')
     .pipe(
+      map((toggle) => ({
+        ...toggle,
+        featureC: true
+      })),
       tap((toggles: any) => {
+        console.log(toggles)
         this.featureToggles = toggles;
       })
     );
   }
 
   isFeatureEnabled(featureName: string): boolean {
-    console.log('feature name', featureName)
-    console.log('features', this.featureToggles)
     return this.featureToggles[featureName] === true;
   }
 }
