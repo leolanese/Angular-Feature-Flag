@@ -27,7 +27,7 @@ describe('FeatureToggleService', () => {
   });
 
   it('should load feature toggles', () => {
-    const mockToggles = { login: true, add_user: false };
+    const mockToggles = { login: true, add_user: false, featureC: true };
 
     service.loadFeatureToggles().subscribe(toggles => {
       expect(service['featureToggles']).toEqual(mockToggles);
