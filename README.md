@@ -31,7 +31,6 @@ Use Feature Toggles in Components:
 
 Inject the configuration service into your components and use the feature toggles to conditionally display or hide features.
 
-
 Now, we can efficiently manage feature toggles in your Angular application, ensuring that features are enabled or disabled based on configuration settings loaded during the app initialization phase.
 ```
 
@@ -50,6 +49,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 ## Running unit tests
+
+Unit tests are written using Jasmine and executed with Karma.
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
