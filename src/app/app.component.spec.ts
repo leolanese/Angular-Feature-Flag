@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { FeatureToggleService } from './feature-toggle.service';
 import { By } from '@angular/platform-browser';
@@ -17,8 +17,8 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let featureToggleService: FeatureToggleService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async() => {
+    TestBed.configureTestingModule({
       imports: [CommonModule, AppComponent], 
       providers: [{ provide: FeatureToggleService, useClass: MockFeatureToggleService }]
     }).compileComponents();
@@ -27,6 +27,10 @@ describe('AppComponent', () => {
     component = fixture.componentInstance;
     featureToggleService = TestBed.inject(FeatureToggleService);
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should create the app component', () => {
