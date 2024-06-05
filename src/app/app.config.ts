@@ -10,9 +10,8 @@ export function initializeApp(featureToggleService: FeatureToggleService) {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(HttpClientModule),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(), // provideHttpClient()is more “tree-shakable” than importing HttpClientModule
     FeatureToggleService,
     {
       provide: APP_INITIALIZER,
