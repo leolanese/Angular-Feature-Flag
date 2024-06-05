@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(), // provideHttpClient()is more “tree-shakable” than importing HttpClientModule
-    FeatureToggleService,
+    FeatureToggleService,v
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
