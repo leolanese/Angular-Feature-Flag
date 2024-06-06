@@ -4,9 +4,14 @@
 
 ![alt text](./src/assets/image.png)
 
-## Unit-test App
+## Unit-test CLI
 
 ![alt text](./src/assets/unit-tests.png)
+
+
+## Unit-test browser
+
+![alt text](./src/assets/unit-test-browser.png)
 
 
 ## APP_INITIALIZER Token

@@ -1,7 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 import { FeatureToggleService } from './feature-toggle.service';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('FeatureToggleService', () => {
   let service: FeatureToggleService;
@@ -11,8 +13,8 @@ describe('FeatureToggleService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [FeatureToggleService]
+      imports: [],
+      providers: [provideHttpClient(), provideHttpClientTesting(), FeatureToggleService]
     });
 
     service = TestBed.inject(FeatureToggleService);
