@@ -1,5 +1,7 @@
 # Angular (17+) Feature Flags 🚩
 
+> Implementing feature toggles in an Angular (17+) application using APP_INITIALIZER is a powerful technique. Feature toggles enable you to conditionally activate or deactivate specific features in your application based on configuration settings. This approach can be particularly useful for deploying features incrementally
+
 ## Demo App
 
 ![alt text](./src/assets/image.png)
