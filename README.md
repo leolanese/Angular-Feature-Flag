@@ -86,11 +86,11 @@ provideAppInitializer(() => {
 
 The `APP_INITIALIZER` token in Angular is a `dependency injection token` that allows you to load and initialize configuration information before the application starts. This ensures that necessary configuration data is available throughout the application as soon as it begins execution.
 
-## Using APP_INITIALIZER for Feature Toggles
+## Using `APP_INITIALIZER` for Feature Toggles
 
-Implementing feature toggles in an Angular application using APP_INITIALIZER is a powerful technique. Feature toggles enable you to conditionally activate or deactivate specific features in your application based on configuration settings. This approach can be particularly useful for deploying features incrementally, performing A/B testing, or managing experimental features without the need to redeploy the entire application.
+Implementing feature toggles in an Angular application using `APP_INITIALIZER` is a powerful technique. Feature toggles enable you to conditionally activate or deactivate specific features in your application based on configuration settings. This approach can be particularly useful for deploying features incrementally, performing A/B testing, or managing experimental features without the need to redeploy the entire application.
 
-## APP_INITIALIZER implementation ste--by-step in Angular application
+## `APP_INITIALIZER` implementation step-by-step
 
 ```js
 Steps to Implement Feature Toggles with APP_INITIALIZER
