@@ -1,6 +1,72 @@
-# Angular (17+) Feature Flags 🚩
+# Angular (19+) Feature Flags 🚩
 
-> Implementing feature toggles in an Angular (17+) application using APP_INITIALIZER is a powerful technique. Feature toggles enable you to conditionally activate or deactivate specific features in your application based on configuration settings. This approach can be particularly useful for deploying features incrementally
+## Let me explain what this Angular application does. It's a feature flag (also known as feature toggle) implementation that allows you to enable or disable specific features in your application based on configuration settings.
+
+Here's a breakdown of the main components and functionality:
+- Feature Toggle Service (FeatureToggleService):
+- Loads feature toggle configurations from a JSON file (/assets/feature-toggles.json)
+- Provides methods to check if a specific feature is enabled or disabled
+- The configuration includes features like:
+login
+add_user
+featureA
+featureB
+
+Application Initialisation:
+- Uses provideAppInitializer to load feature toggles when the application starts
+- This ensures feature flags are available before the app renders
+- Uses firstValueFrom to convert the Observable from loadFeatureToggles() into a Promise
+
+Feature Toggle Configuration:
+- Looking at the `feature-toggles.json` file:
+```js
+  {
+       "login": true,
+       "add_user": true,
+       "featureA": true,
+       "featureB": false
+   }
+```
+
+This shows that:
+- `login`, `add_user`, and `featureA` features are enabled but `featureB` feature is disabled
+
+
+![features-flagged](./src/assets/features-flagged.png)
+
+---
+
+## Angular Version & Updates
+
+> [ORIGINAL VERSION] Implementing feature toggles in an Angular (17+) application using APP_INITIALIZER is a powerful technique. Feature toggles enable you to conditionally activate or deactivate specific features in your application based on configuration settings. This approach can be particularly useful for deploying features incrementally
+
+> [UPDATED] Update to Angular 19+, The whole point of APP_INITIALIZER (and now provideAppInitializer) is to: Delay app bootstrap until some async setup logic (like fetching config, toggles, auth) completes. Further info: localhost:4200/#/av/cache-test
+
+> [UPDATED RXJS] toPromise() is deprecated in favor of: `firstValueFrom()` (get first emitted value and complete) and `lastValueFrom()` (wait until the observable completes and return last value)
+
+- This behaves exactly like the old `APP_INITIALIZER`:
+Angular sees a Promise, so it waits for it to resolve before bootstrapping the app.
+You're injecting a service, calling an API, and waiting for the result.
+You can chain multiple provideAppInitializer() calls just like multiple APP_INITIALIZERs.
+
+
+```js
+//  don't use APP_INITIALIZER, it is deprecated ❌ use provideAppInitilizer() ✅
+// app.config.ts
+{
+  provide: APP_INITIALIZER,
+  useFactory: initializeApp,
+  deps: [FeatureToggleService],
+  multi: true,
+},
+// instead use provideAppInitilizer() ✅
+provideAppInitializer(() => {
+  const featureToggleService = inject(FeatureToggleService);
+  console.log('initializeApp!');
+  return featureToggleService.loadFeatureToggles();
+}),
+```
+
 
 ## Demo App
 
@@ -80,7 +146,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ##### :radio_button: Linkedin: <a href="https://www.linkedin.com/in/leolanese/" target="_blank">LeoLanese</a>
 ##### :radio_button: Twitter: <a href="https://twitter.com/LeoLanese" target="_blank">@LeoLanese</a>
-##### :radio_button: Portfolio: <a href="https://www.leolanese.com" target="_blank">www.leolanese.com</a>
 ##### :radio_button: DEV.to: <a href="https://www.dev.to/leolanese" target="_blank">dev.to/leolanese</a>
 ##### :radio_button: Blog: <a href="https://www.leolanese.com/blog" target="_blank">leolanese.com/blog</a>
 ##### :radio_button: Questions / Suggestion / Recommendation: developer@leolanese.com

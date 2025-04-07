@@ -1,23 +1,23 @@
-import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { FeatureToggleService } from './feature-toggle.service';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FeatureToggleService } from './feature-toggle.service';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  template: `
+    selector: 'app-root',
+    standalone: true,
+    imports: [CommonModule],
+    template: `
     <div class="container">
-      <div *ngFor="let feature of features" class="feature-block" [ngClass]="{'hidden': !featureToggleService.isFeatureEnabled(feature.key)}">
+      <div *ngFor="let feature of features" class="feature-block" 
+            [ngClass]="{'hidden': !featureToggleService.isFeatureEnabled(feature.key)}">
         <h3>{{ feature.label }}: enabled</h3>
       </div>
     </div>
   `,
-  styleUrl: './app.component.scss'
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Angular_Feature-Flag';
+  title = 'Angular Feature-Flag';
   featureToggleService = inject(FeatureToggleService);
 
   features = [
@@ -26,7 +26,5 @@ export class AppComponent {
     { key: 'featureA', label: 'Feature A' },
     { key: 'featureB', label: 'Feature B' }
   ];
-
-  constructor() {}
 
 }
